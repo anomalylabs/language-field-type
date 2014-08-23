@@ -1,4 +1,4 @@
-<?php namespace Addon\FieldType\Language;
+<?php namespace Streams\Addon\FieldType\Language;
 
 use Streams\Core\Addon\FieldTypeAbstract;
 
