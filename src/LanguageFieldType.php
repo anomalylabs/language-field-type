@@ -12,88 +12,13 @@ class LanguageFieldType extends FieldTypeAbstract
     public $columnType = 'string';
 
     /**
-     * Field type version
-     *
-     * @var string
-     */
-    public $version = '1.1.0';
-
-    /**
-     * Field type author information.
-     *
-     * @var array
-     */
-    public $author = array(
-        'name' => 'AI Web Systems, Inc.',
-        'url'  => 'http://aiwebsystems.com/',
-    );
-
-    /**
      * Return the input used for forms.
      *
      * @return mixed
      */
-    public function formInput()
+    public function input()
     {
-        if ($languages = $this->getLanguages() and !$this->field->is_required) {
-            $languages = array(null => $this->getPlaceholder()) + $languages;
-        }
-
-        \Form::select($this->formSlug, $languages, $this->value);
-    }
-
-    /**
-     * Return the input used for filters.
-     *
-     * @return mixed
-     */
-    public function filterInput()
-    {
-        \Form::select(
-            $this->getFilterSlug('is'),
-            $this->getLanguages(),
-            $this->getFilterValue('is')
-        );
-    }
-
-    /**
-     * Return the string output value.
-     *
-     * @return null
-     */
-    public function stringOutput()
-    {
-        return $this->getLanguage($this->value);
-    }
-
-    /**
-     * Return the plugin output value.
-     *
-     * @return null
-     */
-    public function pluginOutput()
-    {
-        if ($this->value) {
-            return array(
-                'name' => $this->getLanguage($this->value),
-                'code' => $this->value,
-            );
-        }
-
-        return null;
-    }
-
-    /**
-     * Get the language value from it's code.
-     *
-     * @param null $code
-     * @return null
-     */
-    public function getLanguage($code)
-    {
-        $languages = $this->getLanguages();
-
-        return isset($languages[$code]) ? $languages[$code] : null;
+        \Form::select($this->inputName(), $this->languages(), $this->value());
     }
 
     /**
@@ -101,7 +26,7 @@ class LanguageFieldType extends FieldTypeAbstract
      *
      * @return array
      */
-    public function getLanguages()
+    protected function languages()
     {
         return array(
             'aa' => 'Afar',
