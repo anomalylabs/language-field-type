@@ -1,8 +1,8 @@
-<?php namespace Anomaly\Streams\FieldType\Language;
+<?php namespace Anomaly\Streams\Addon\FieldType\Language;
 
-use Streams\Core\Addon\FieldTypeAbstract;
+use Anomaly\Streams\Platform\Addon\FieldType\FieldTypeAddon;
 
-class LanguageFieldType extends FieldTypeAbstract
+class LanguageFieldType extends FieldTypeAddon
 {
     /**
      * The database column type this field type uses.
