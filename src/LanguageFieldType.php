@@ -4,6 +4,8 @@ use Anomaly\Streams\Platform\Addon\FieldType\FieldTypeAddon;
 
 class LanguageFieldType extends FieldTypeAddon
 {
+    protected $slug = 'language';
+
     /**
      * The database column type this field type uses.
      *
@@ -18,7 +20,7 @@ class LanguageFieldType extends FieldTypeAddon
      */
     public function input()
     {
-        \Form::select($this->inputName(), $this->languages(), $this->value());
+        \Form::select($this->inputName(), $this->languages(), $this->value);
     }
 
     /**
