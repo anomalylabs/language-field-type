@@ -4,30 +4,11 @@ use Anomaly\Streams\Platform\Addon\FieldType\FieldTypeAddon;
 
 class LanguageFieldType extends FieldTypeAddon
 {
-    protected $slug = 'language';
-
-    /**
-     * The database column type this field type uses.
-     *
-     * @var string
-     */
-    public $columnType = 'string';
-
-    /**
-     * Return the input used for forms.
-     *
-     * @return mixed
-     */
     public function input()
     {
         \Form::select($this->inputName(), $this->languages(), $this->value);
     }
 
-    /**
-     * Return available languages as associative array.
-     *
-     * @return array
-     */
     protected function languages()
     {
         return array(
