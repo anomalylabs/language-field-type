@@ -1,6 +1,6 @@
 <?php namespace Anomaly\Streams\Addon\FieldType\Language;
 
-use Anomaly\Streams\Platform\Addon\FieldType\FieldTypeAddon;
+use Anomaly\Streams\Platform\Addon\FieldType\FieldType;
 
 /**
  * Class LanguageFieldType
@@ -10,7 +10,7 @@ use Anomaly\Streams\Platform\Addon\FieldType\FieldTypeAddon;
  * @author        Ryan Thompson <ryan@anomaly.is>
  * @package       Anomaly\Streams\Addon\FieldType\Language
  */
-class LanguageFieldType extends FieldTypeAddon
+class LanguageFieldType extends FieldType
 {
 
     /**
