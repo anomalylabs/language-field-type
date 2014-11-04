@@ -2,14 +2,37 @@
 
 use Anomaly\Streams\Platform\Addon\FieldType\FieldTypeAddon;
 
+/**
+ * Class LanguageFieldType
+ *
+ * @link          http://anomaly.is/streams-platform
+ * @author        AnomalyLabs, Inc. <hello@anomaly.is>
+ * @author        Ryan Thompson <ryan@anomaly.is>
+ * @package       Anomaly\Streams\Addon\FieldType\Language
+ */
 class LanguageFieldType extends FieldTypeAddon
 {
+
+    /**
+     * Return the input HTML.
+     *
+     * @return mixed
+     */
     public function input()
     {
-        \Form::select($this->inputName(), $this->languages(), $this->value);
+        $options = [
+            'class' => 'form-control',
+        ];
+
+        return app('form')->select($this->getFieldName(), $this->getLanguages(), $this->getValue(), $options);
     }
 
-    protected function languages()
+    /**
+     * Get the language options.
+     *
+     * @return array
+     */
+    public function getLanguages()
     {
         return array(
             'aa' => 'Afar',
