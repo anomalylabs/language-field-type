@@ -14,21 +14,56 @@ class LanguageFieldType extends FieldType
 {
 
     /**
-     * Return the input HTML.
+     * The input class.
      *
-     * @return mixed
+     * @var null
      */
-    public function input()
-    {
-        $options = [
-            'class' => 'form-control',
-        ];
+    protected $class = null;
 
-        return app('form')->select($this->getFieldName(), $this->getLanguages(), $this->getValue(), $options);
+    /**
+     * The input view.
+     *
+     * @var string
+     */
+    protected $inputView = 'field_type.language::input';
+
+    /**
+     * Get the view data for the input.
+     *
+     * @return array
+     */
+    public function getInputData()
+    {
+        $data = parent::getInputData();
+
+        $data['options'] = $this->getOptions();
+
+        return $data;
     }
 
     /**
-     * Get the language options.
+     * Get the option.
+     *
+     * @return array
+     */
+    protected function getOptions()
+    {
+        $options = [];
+
+        foreach ($this->getLanguages() as $iso => $language) {
+
+            $selected = $iso == $this->getValue();
+
+            $language = trans($language);
+
+            $options[] = compact('iso', 'language', 'selected');
+        }
+
+        return $options;
+    }
+
+    /**
+     * Get the languages.
      *
      * @return array
      */
