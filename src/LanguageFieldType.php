@@ -1,4 +1,4 @@
-<?php namespace Anomaly\Streams\Addon\FieldType\Language;
+<?php namespace Anomaly\LanguageFieldType;
 
 use Anomaly\Streams\Platform\Addon\FieldType\FieldType;
 
