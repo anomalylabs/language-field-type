@@ -1,5 +1,5 @@
 {
-    "name": "anomaly/language-field-type",
+    "name": "anomaly/language-field_type",
     "type": "streams-addon",
     "description": "Language field type.",
     "authors": [
