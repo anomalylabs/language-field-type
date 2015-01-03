@@ -25,7 +25,7 @@ class LanguageFieldType extends FieldType
      *
      * @var string
      */
-    protected $inputView = 'field_type.language::input';
+    protected $inputView = 'anomaly.field_type.language::input';
 
     /**
      * Get the view data for the input.
