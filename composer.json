@@ -1,13 +1,22 @@
 {
     "name": "anomaly/language-field_type",
     "type": "streams-addon",
-    "description": "Language field type.",
+    "description": "A language dropdown field type.",
+    "keywords": ["streams-addon", "language", "pyrocms", "laravel"],
+    "homepage": "http://anomaly.is/",
+    "version": "1.0.0-alpha",
+    "license": "MIT",
     "authors": [
         {
-            "name": "AnomalyLabs",
-            "email": "hello@anomaly.is"
+            "name": "AnomalyLabs, Inc.",
+            "email": "hello@anomaly.is",
+            "homepage": "http://anomaly.is/",
+            "role": "Owner"
         }
     ],
+    "support": {
+        "email": "support@anomaly.is"
+    },
     "autoload": {
         "psr-4": {
             "Anomaly\\LanguageFieldType\\": "src/"

@@ -14,13 +14,6 @@ class LanguageFieldType extends FieldType
 {
 
     /**
-     * The input class.
-     *
-     * @var null
-     */
-    protected $class = null;
-
-    /**
      * The input view.
      *
      * @var string
@@ -28,33 +21,17 @@ class LanguageFieldType extends FieldType
     protected $inputView = 'anomaly.field_type.language::input';
 
     /**
-     * Get the view data for the input.
-     *
-     * @return array
-     */
-    public function getInputData()
-    {
-        $data = parent::getInputData();
-
-        $data['options'] = $this->getOptions();
-
-        return $data;
-    }
-
-    /**
      * Get the option.
      *
      * @return array
      */
-    protected function getOptions()
+    public function getOptions()
     {
         $options = [];
 
         foreach ($this->getLanguages() as $iso => $language) {
 
-            $selected = $iso == $this->getValue();
-
-            $language = trans($language);
+            $selected = ($iso == $this->getValue());
 
             $options[] = compact('iso', 'language', 'selected');
         }
@@ -69,7 +46,7 @@ class LanguageFieldType extends FieldType
      */
     public function getLanguages()
     {
-        return array(
+        $languages = [
             'aa' => 'Afar',
             'ab' => 'Abkhaz',
             'ae' => 'Avestan',
@@ -254,6 +231,16 @@ class LanguageFieldType extends FieldType
             'za' => 'Zhuang, Chuang',
             'zh' => 'Chinese',
             'zu' => 'Zulu',
-        );
+        ];
+
+        /**
+         * Move keys for top options onto the top of
+         * the countries array.
+         */
+        foreach (array_reverse(array_get($this->config, 'top_options', ['en'])) as $topOption) {
+            array_unshift($languages, array_get($languages, $topOption));
+        }
+
+        return array_filter($languages);
     }
 }

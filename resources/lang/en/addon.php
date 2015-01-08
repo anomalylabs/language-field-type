@@ -2,5 +2,5 @@
 
 return [
     'name'        => 'Language',
-    'description' => 'Language field type.',
+    'description' => 'A language dropdown field type.',
 ];
