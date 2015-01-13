@@ -2,7 +2,12 @@
     "name": "anomaly/language-field_type",
     "type": "streams-addon",
     "description": "A language dropdown field type.",
-    "keywords": ["streams-addon", "language", "pyrocms", "laravel"],
+    "keywords": [
+        "streams-addon",
+        "language",
+        "pyrocms",
+        "laravel"
+    ],
     "homepage": "http://anomaly.is/",
     "version": "1.0.0-alpha",
     "license": "MIT",
