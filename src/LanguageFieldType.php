@@ -21,30 +21,11 @@ class LanguageFieldType extends FieldType
     protected $inputView = 'anomaly.field_type.language::input';
 
     /**
-     * Get the option.
+     * Get the options.
      *
      * @return array
      */
     public function getOptions()
-    {
-        $options = [];
-
-        foreach ($this->getLanguages() as $iso => $language) {
-
-            $selected = ($iso == $this->getValue());
-
-            $options[] = compact('iso', 'language', 'selected');
-        }
-
-        return $options;
-    }
-
-    /**
-     * Get the languages.
-     *
-     * @return array
-     */
-    public function getLanguages()
     {
         $languages = [
             'aa' => 'Afar',
