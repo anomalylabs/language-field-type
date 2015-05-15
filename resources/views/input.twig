@@ -2,7 +2,7 @@
 
     {% for iso, language in field_type.options %}
 
-        <option value="{{ iso }}" {{ iso == field_type.value ? 'selected' }}>{{ language }}</option>
+        <option value="{{ iso }}" {{ iso == field_type.value ? 'selected' }}>{{ trans(language) }}</option>
 
     {% endfor %}
 
