@@ -214,6 +214,16 @@ class LanguageFieldType extends FieldType
             'zu' => 'Zulu',
         ];
 
-        return array_filter($languages);
+        return [null => $this->getPlaceholder()] + $languages;
+    }
+
+    /**
+     * Get the placeholder.
+     *
+     * @return null|string
+     */
+    public function getPlaceholder()
+    {
+        return $this->placeholder ?: 'anomaly.field_type.language::input.placeholder';
     }
 }
