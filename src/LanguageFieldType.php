@@ -214,14 +214,6 @@ class LanguageFieldType extends FieldType
             'zu' => 'Zulu',
         ];
 
-        /**
-         * Move keys for top options onto the top of
-         * the countries array.
-         */
-        foreach (array_reverse(array_get($this->config, 'top_options', ['en'])) as $topOption) {
-            array_unshift($languages, array_get($languages, $topOption));
-        }
-
         return array_filter($languages);
     }
 }
