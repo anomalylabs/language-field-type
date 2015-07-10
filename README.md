@@ -4,4 +4,4 @@
 
 #### A language dropdown field type.
 
-The language field type provides a list of languages in an HTML select input.
+The language field type provides a dropdown input of languages.
