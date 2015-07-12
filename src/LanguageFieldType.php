@@ -49,9 +49,13 @@ class LanguageFieldType extends FieldType
 
         asort($options);
 
-        foreach (array_filter(
-                     array_reverse(explode("\r\n", array_get($this->getConfig(), 'top_options')))
-                 ) as $locale) {
+        $topOptions = array_get($this->getConfig(), 'top_options');
+
+        if (!is_array($topOptions)) {
+            $topOptions = array_filter(array_reverse(explode("\r\n", $topOptions)));
+        }
+
+        foreach ($topOptions as $locale) {
             $options = [$locale => $options[$locale]] + $options;
         }
 
