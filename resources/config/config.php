@@ -1,10 +1,13 @@
 <?php
 
 return [
-    'top_options'   => [
+    'top_options'       => [
         'type' => 'anomaly.field_type.textarea'
     ],
-    'default_value' => [
+    'default_value'     => [
         'type' => 'anomaly.field_type.language'
+    ],
+    'available_locales' => [
+        'type' => 'anomaly.field_type.boolean'
     ]
 ];

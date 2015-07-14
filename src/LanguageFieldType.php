@@ -36,6 +36,10 @@ class LanguageFieldType extends FieldType
      */
     public function getOptions()
     {
+        /**
+         * Get supported locales and their
+         * translated names and then sort them.
+         */
         $locales = array_keys(config('streams::locales.supported'));
 
         $names = array_map(
@@ -49,6 +53,10 @@ class LanguageFieldType extends FieldType
 
         asort($options);
 
+        /**
+         * Now move the top options values
+         * to the top of the options array.
+         */
         $topOptions = array_get($this->getConfig(), 'top_options');
 
         if (!is_array($topOptions)) {
@@ -57,6 +65,14 @@ class LanguageFieldType extends FieldType
 
         foreach ($topOptions as $locale) {
             $options = [$locale => $options[$locale]] + $options;
+        }
+
+        /**
+         * Lastly, if the ONLY available locales
+         * are desired remove everything else.
+         */
+        if (array_get($this->getConfig(), 'available_locales')) {
+            $options = array_intersect_key($options, array_flip(config('streams::locales.enabled')));
         }
 
         return [null => $this->getPlaceholder()] + array_unique($options);
