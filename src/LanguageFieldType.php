@@ -75,6 +75,14 @@ class LanguageFieldType extends FieldType
             $options = array_intersect_key($options, array_flip(config('streams::locales.enabled')));
         }
 
+        /**
+         * OR, if the ONLY supported locales
+         * are desired remove everything else.
+         */
+        if (array_get($this->getConfig(), 'supported_locales')) {
+            $options = array_intersect_key($options, array_flip(array_keys(config('streams::locales.supported'))));
+        }
+
         return [null => $this->getPlaceholder()] + array_unique($options);
     }
 
