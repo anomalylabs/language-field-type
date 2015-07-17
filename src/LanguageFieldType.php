@@ -83,7 +83,7 @@ class LanguageFieldType extends FieldType
             $options = array_intersect_key($options, array_flip(array_keys(config('streams::locales.supported'))));
         }
 
-        return [null => $this->getPlaceholder()] + array_unique($options);
+        return array_filter([null => $this->getPlaceholder()] + array_unique($options));
     }
 
     /**
@@ -93,6 +93,6 @@ class LanguageFieldType extends FieldType
      */
     public function getPlaceholder()
     {
-        return $this->placeholder ?: 'anomaly.field_type.language::input.placeholder';
+        return ($this->placeholder !== null) ? $this->placeholder : 'anomaly.field_type.language::input.placeholder';
     }
 }
