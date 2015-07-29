@@ -1,5 +1,6 @@
 <?php namespace Anomaly\LanguageFieldType;
 
+use Anomaly\LanguageFieldType\Command\BuildOptions;
 use Anomaly\Streams\Platform\Addon\FieldType\FieldType;
 
 /**
@@ -26,8 +27,16 @@ class LanguageFieldType extends FieldType
      * @var array
      */
     protected $config = [
-        'default_value' => 'en'
+        'default_value' => 'en',
+        'handler'       => 'Anomaly\LanguageFieldType\LanguageFieldTypeOptions@handle'
     ];
+
+    /**
+     * The dropdown options.
+     *
+     * @var null|array
+     */
+    protected $options = null;
 
     /**
      * Get the options.
@@ -36,22 +45,9 @@ class LanguageFieldType extends FieldType
      */
     public function getOptions()
     {
-        /**
-         * Get supported locales and their
-         * translated names and then sort them.
-         */
-        $locales = array_keys(config('streams::locales.supported'));
-
-        $names = array_map(
-            function ($locale) {
-                return 'streams::locale.' . $locale . '.name';
-            },
-            $locales
-        );
-
-        $options = array_combine($locales, $names);
-
-        asort($options);
+        if ($this->options === null) {
+            $this->dispatch(new BuildOptions($this));
+        }
 
         /**
          * Now move the top options values
@@ -64,7 +60,7 @@ class LanguageFieldType extends FieldType
         }
 
         foreach ($topOptions as $locale) {
-            $options = [$locale => $options[$locale]] + $options;
+            $this->options = [$locale => $this->options[$locale]] + $this->options;
         }
 
         /**
@@ -72,7 +68,7 @@ class LanguageFieldType extends FieldType
          * are desired remove everything else.
          */
         if (array_get($this->getConfig(), 'available_locales')) {
-            $options = array_intersect_key($options, array_flip(config('streams::locales.enabled')));
+            $this->options = array_intersect_key($this->options, array_flip(config('streams::locales.enabled')));
         }
 
         /**
@@ -80,10 +76,26 @@ class LanguageFieldType extends FieldType
          * are desired remove everything else.
          */
         if (array_get($this->getConfig(), 'supported_locales')) {
-            $options = array_intersect_key($options, array_flip(array_keys(config('streams::locales.supported'))));
+            $this->options = array_intersect_key(
+                $this->options,
+                array_flip(array_keys(config('streams::locales.supported')))
+            );
         }
 
-        return array_filter([null => $this->getPlaceholder()] + array_unique($options));
+        return array_filter([null => $this->getPlaceholder()] + array_unique($this->options));
+    }
+
+    /**
+     * Set the options.
+     *
+     * @param array $options
+     * @return $this
+     */
+    public function setOptions(array $options)
+    {
+        $this->options = $options;
+
+        return $this;
     }
 
     /**

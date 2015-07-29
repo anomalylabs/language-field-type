@@ -1,6 +1,7 @@
 <?php
 
 return [
-    'name'        => 'Language',
-    'description' => 'A language dropdown field type.',
+    'title'       => 'Language',
+    'name'        => 'Language Field Type',
+    'description' => 'A language dropdown field type.'
 ];
