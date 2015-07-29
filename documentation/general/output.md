@@ -1,6 +1,6 @@
 # Output
 
-This field type returns the selected language code by default.
+This field type returns the selected language i18n code by default.
 
 ### Name
 
