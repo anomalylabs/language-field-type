@@ -21,11 +21,11 @@ protected $fields = [
 
 ### `default_value`
 
-The default language selected. Any valid language code can be used. The default value is `'en'`. 
+The default language selected. Any valid i18n language code can be used. The default value is `'en'`. 
 
 ### `top_options`
 
-An array of languages to put at the top of the language dropdown. Any array of valid language codes can be used. There are no top options by default.
+An array of languages to put at the top of the language dropdown. Any array of valid i18n language codes can be used. There are no top options by default.
 
 ### `handler`
 
