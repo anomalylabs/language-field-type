@@ -38,10 +38,10 @@ class LanguageFieldTypePresenter extends FieldTypePresenter
     /**
      * Return the translated country name.
      *
-     * @param      $locale
+     * @param null $locale
      * @return null|string
      */
-    public function translated($locale)
+    public function translated($locale = null)
     {
         if (!$key = $this->object->getValue()) {
             return null;
