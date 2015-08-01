@@ -82,7 +82,7 @@ class LanguageFieldType extends FieldType
             );
         }
 
-        return array_filter([null => $this->getPlaceholder()] + array_unique($this->options));
+        return array_unique($this->options);
     }
 
     /**

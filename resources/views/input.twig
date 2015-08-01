@@ -1,9 +1,11 @@
 <select name="{{ field_type.input_name }}" class="form-control">
 
+    {% if not field_type.required %}
+        <option>{{ trans(field_type.placeholder) }}</option>
+    {% endif %}
+
     {% for iso, language in field_type.options %}
-
         <option value="{{ iso }}" {{ iso == field_type.value ? 'selected' }}>{{ trans(language) }}</option>
-
     {% endfor %}
 
 </select>
