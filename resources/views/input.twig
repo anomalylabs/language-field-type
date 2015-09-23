@@ -1,4 +1,7 @@
-<select name="{{ field_type.input_name }}" class="form-control">
+<select
+        class="form-control"
+        name="{{ field_type.input_name }}"
+        {{ field_type.required ? 'required' }}>
 
     {% if not field_type.required %}
         <option>{{ trans(field_type.placeholder) }}</option>
