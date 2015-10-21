@@ -26,7 +26,7 @@ class LanguageFieldTypeOptions
 
         $names = array_map(
             function ($locale) {
-                return 'streams::locale.' . $locale . '.name';
+                return trans('streams::locale.' . $locale . '.name') . ' (' . $locale . ')';
             },
             $locales
         );
