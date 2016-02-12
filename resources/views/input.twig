@@ -1,9 +1,19 @@
-<select name="{{ field_type.input_name }}" class="form-control">
+{{ asset_add('scripts.js', 'anomaly.field_type.language::js/select2.full.min.js') }}
+{{ asset_add('scripts.js', 'anomaly.field_type.language::js/input.js') }}
+{{ asset_add('styles.css', 'anomaly.field_type.language::less/select2.less') }}
+{{ asset_add('styles.css', 'anomaly.field_type.language::less/select2-bootstrap.less') }}
+
+<select
+        class="form-control"
+        name="{{ field_type.input_name }}"
+        {{ field_type.required ? 'required' }}>
+
+    {% if not field_type.required %}
+        <option>{{ trans(field_type.placeholder) }}</option>
+    {% endif %}
 
     {% for iso, language in field_type.options %}
-
         <option value="{{ iso }}" {{ iso == field_type.value ? 'selected' }}>{{ trans(language) }}</option>
-
     {% endfor %}
 
 </select>
