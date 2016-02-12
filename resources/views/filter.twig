@@ -1,11 +1,9 @@
 <select
         class="c-select"
         name="{{ field_type.input_name }}"
-        {{ field_type.required ? 'required' }}>
+        {{ field_type.disabled ? 'disabled' }}>
 
-    {% if not field_type.required %}
-        <option>{{ trans(field_type.placeholder) }}</option>
-    {% endif %}
+    <option>{{ trans(field_type.placeholder) }}</option>
 
     {% for iso, language in field_type.options %}
         <option value="{{ iso }}" {{ iso == field_type.value ? 'selected' }}>{{ trans(language) }}</option>
