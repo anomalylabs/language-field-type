@@ -7,14 +7,14 @@
         "streams addon",
         "field type"
     ],
-    "homepage": "http://anomaly.is/",
+    "homepage": "http://pyrocms.com/",
     "version": "1.0.0",
     "license": "MIT",
     "authors": [
         {
-            "name": "AnomalyLabs, Inc.",
-            "email": "hello@anomaly.is",
-            "homepage": "http://anomaly.is/",
+            "name": "PyroCMS, Inc.",
+            "email": "support@pyrocms.com",
+            "homepage": "http://pyrocms.com/",
             "role": "Owner"
         }
     ],

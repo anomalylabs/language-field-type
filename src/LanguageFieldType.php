@@ -5,9 +5,9 @@ use Anomaly\Streams\Platform\Addon\FieldType\FieldType;
 /**
  * Class LanguageFieldType
  *
- * @link          http://anomaly.is/streams-platform
- * @author        AnomalyLabs, Inc. <hello@anomaly.is>
- * @author        Ryan Thompson <ryan@anomaly.is>
+ * @link          http://pyrocms.com/
+ * @author        PyroCMS, Inc. <support@pyrocms.com>
+ * @author        Ryan Thompson <ryan@pyrocms.com>
  * @package       Anomaly\Streams\Addon\FieldType\Language
  */
 class LanguageFieldType extends FieldType
@@ -55,7 +55,7 @@ class LanguageFieldType extends FieldType
             $options = [$locale => $options[$locale]] + $options;
         }
 
-        return [null => $this->getPlaceholder()] + array_unique($options);
+        return array_unique($options);
     }
 
     /**
