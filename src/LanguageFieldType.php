@@ -8,7 +8,6 @@ use Anomaly\Streams\Platform\Addon\FieldType\FieldType;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\Streams\Addon\FieldType\Language
  */
 class LanguageFieldType extends FieldType
 {
@@ -26,7 +25,7 @@ class LanguageFieldType extends FieldType
      * @var array
      */
     protected $config = [
-        'default_value' => 'en'
+        'default_value' => 'en',
     ];
 
     /**

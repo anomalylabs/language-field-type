@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'placeholder' => 'Choose a language...'
+    'placeholder' => 'Choose a language...',
 ];

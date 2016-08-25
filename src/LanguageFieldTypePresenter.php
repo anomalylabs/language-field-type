@@ -8,7 +8,6 @@ use Anomaly\Streams\Platform\Addon\FieldType\FieldTypePresenter;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\LanguageFieldType
  */
 class LanguageFieldTypePresenter extends FieldTypePresenter
 {
@@ -38,7 +37,7 @@ class LanguageFieldTypePresenter extends FieldTypePresenter
     /**
      * Return the translated country name.
      *
-     * @param      $locale
+     * @param              $locale
      * @return null|string
      */
     public function translated($locale)

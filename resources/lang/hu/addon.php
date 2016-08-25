@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'name' => 'Nyelv',
+    'name'        => 'Nyelv',
     'description' => 'Nyelv legördülő mező típus.',
 ];
