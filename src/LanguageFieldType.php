@@ -47,7 +47,7 @@ class LanguageFieldType extends FieldType
         $options = array_combine($locales, $names);
 
         asort($options);
-        
+
         $topOptions = array_get($this->getConfig(), 'top_options');
 
         if (!is_array($topOptions)) {
