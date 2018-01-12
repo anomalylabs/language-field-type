@@ -1,6 +1,14 @@
 <?php
 
 return [
+    'mode'          => [
+        'label'        => 'Mode',
+        'instructions' => 'What kind of input would you like to display?',
+        'option'       => [
+            'search'   => 'Search',
+            'dropdown' => 'Dropdown',
+        ],
+    ],
     'top_options'   => [
         'name'         => 'Top Options',
         'instructions' => 'Enter the ISO codes for languages that should be moved to the top. Enter each code on a new line.',

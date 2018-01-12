@@ -15,9 +15,9 @@ class LanguageFieldType extends FieldType
     /**
      * The input view.
      *
-     * @var string
+     * @var null
      */
-    protected $inputView = 'anomaly.field_type.language::input';
+    protected $inputView = null;
 
     /**
      * The default config.
@@ -25,6 +25,7 @@ class LanguageFieldType extends FieldType
      * @var array
      */
     protected $config = [
+        'mode'          => 'dropdown',
         'default_value' => 'en',
     ];
 
@@ -72,6 +73,20 @@ class LanguageFieldType extends FieldType
     }
 
     /**
+     * Return the input view.
+     *
+     * @return string
+     */
+    public function getInputView()
+    {
+        if ($view = parent::getInputView()) {
+            return $view;
+        }
+
+        return 'anomaly.field_type.language::' . $this->config('mode', 'dropdown');
+    }
+
+    /**
      * Get the class.
      *
      * @return null|string
@@ -82,6 +97,9 @@ class LanguageFieldType extends FieldType
             return $class;
         }
 
-        return $this->config('mode') == 'dropdown' ? 'custom-select form-control' : 'form-control';
+        return $this->config('mode') == 'dropdown'
+            ? 'custom-select form-control'
+            : 'c-inputs-stacked';
     }
+
 }
