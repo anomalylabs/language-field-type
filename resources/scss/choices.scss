@@ -49,7 +49,7 @@ $choices-button-offset: 8px !default;
     margin: 0;
   }
   .#{$choices-selector}__button {
-    background-image: url('{{ img("anomaly.field_type.checkboxes::img/cross-inverse.svg").path }}');
+    background-image: url('{{ img("pyrocms.theme.accelerant::img/choices/cross-inverse.svg").path }}');
     padding: 0;
     background-size: 8px;
     height: 100%;
