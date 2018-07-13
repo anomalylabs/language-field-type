@@ -25,7 +25,7 @@ class LanguageFieldType extends FieldType
      * @var array
      */
     protected $config = [
-        'mode'          => 'dropdown',
+        'mode'          => 'search',
         'default_value' => 'en',
     ];
 
