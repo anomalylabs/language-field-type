@@ -3,7 +3,7 @@
 {{ asset_add("scripts.js", "anomaly.field_type.language::js/search.js") }}
 
 <select
-        class="language"
+        class="search"
         name="{{ field_type.input_name }}"
         {{ html_attributes(field_type.attributes) }}
         {{ field_type.disabled ? 'disabled' }}
@@ -17,11 +17,11 @@
         {% if option is iterable %}
             <optgroup label="{{ trans(value) }}">
                 {% for value, option in option %}
-                    <option value="{{ value }}" {{ value == field_type.key ? 'selected' }}>{{ trans(option) }}</option>
+                    <option value="{{ value }}" {{ value == field_type.value ? 'selected' }}>{{ trans(option) }}</option>
                 {% endfor %}
             </optgroup>
         {% else %}
-            <option value="{{ value }}" {{ value == field_type.key ? 'selected' }}>{{ trans(option) }}</option>
+            <option value="{{ value }}" {{ value == field_type.value ? 'selected' }}>{{ trans(option) }}</option>
         {% endif %}
     {% endfor %}
 
