@@ -101,5 +101,4 @@ class LanguageFieldType extends FieldType
             ? 'custom-select form-control'
             : 'c-inputs-stacked';
     }
-
 }
